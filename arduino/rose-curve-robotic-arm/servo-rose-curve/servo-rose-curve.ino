@@ -13,9 +13,9 @@ const float L2 = 8.0;
 // r = A cos( k * theta )
 const float radius = 3.0;
 const float k = 0.5;
-const float centerX = 0.0;
-const float centerY = 10.0;
-const int numSteps = 200;
+const float centreX = 0.0;
+const float centreY = 10.0;
+const int numSteps = 1000;
 
 void setup()
 {
@@ -33,10 +33,10 @@ void drawRoseCurve(float radius, float k, float centreX, float centreY, int numS
 {
    for (int i = 0; i < numSteps; i++)
    {
-      float t = (4.0 * PI * i) / numSteps;
+      float t = (16 * PI * i) / numSteps;
 
-      float x = centerX + radius * cos(k * t) * cos(t);
-      float y = centerY + radius * cos(k * t) * sin(t);
+      float x = centreX + radius * cos(k * t) * cos(t);
+      float y = centreY + radius * cos(k * t) * sin(t);
 
       float d = (x * x + y * y - L1 * L1 - L2 * L2) / (2 * L1 * L2);
       float theta2 = acos(d);
