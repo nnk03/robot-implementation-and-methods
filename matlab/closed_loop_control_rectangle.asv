@@ -1,0 +1,36 @@
+clc, clear all, close all;
+
+
+xd = [0, 2, 2, 0];
+yd = [0, 0, 1, 1];
+
+global k d xd yd i;
+
+k = 5;
+d = 0.1;
+i = 1;
+
+x0 = -3;
+y0 = 4;
+th0 = pi / 4;
+
+function y = mobile(t, x)
+
+global k d xd yd i;
+
+x_pos = x(1);
+y_pos = x(2);
+th = x(3);
+
+y1 = x_pos + d * cos(th);
+y2 = y_pos + d * sin(th);
+
+A = [cos(th), -d * sin(th);
+    sin(th), -d * cos(th)];
+
+% choosing xd_dot and yd_dot as zero
+u1 = -k * (y1 - xd(i));
+u2 = -k * (y2 - yd(i));
+
+end
+
